@@ -1,20 +1,286 @@
-Glow Up
-Монгол V2
-Оройн мэнд, Жаргал ✨
-Нэг өдөрт нэг алхам. Өөрийн мөрөөдлийн хувилбар луу.
-Өдөр
-1 / 75
-🔥 Дараалал
-1 өдөр
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glow Up by Jargal</title>
+  <meta name="theme-color" content="#fff7f9">
+  <style>
+    :root{
+      --bg:#fffaf7; --card:#ffffff; --pink:#f5b8c8; --pink2:#ffe8ef;
+      --text:#343235; --muted:#9b8d8f; --line:#f1dfe4; --cream:#fff7f1;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,var(--bg),#fff);color:var(--text)}
+    .app{max-width:430px;margin:0 auto;min-height:100vh;padding:22px 18px 105px}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+    .pill{background:var(--pink2);color:#b4697e;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700}
+    h1{font-size:34px;line-height:1.05;margin:22px 0 8px}
+    .sub{color:var(--muted);font-size:15px;margin-bottom:18px;line-height:1.45}
+    .card{background:rgba(255,255,255,.9);border:1px solid var(--line);box-shadow:0 12px 35px rgba(210,148,165,.12);border-radius:24px;padding:18px;margin:14px 0;backdrop-filter:blur(8px)}
+    .day{display:flex;justify-content:space-between;align-items:flex-end}
+    .day strong{font-size:46px}
+    .day span{color:var(--muted);font-size:14px}
+    .bar{height:12px;background:#f8edf0;border-radius:999px;overflow:hidden;margin:14px 0 6px}
+    .fill{height:100%;width:0%;background:linear-gradient(90deg,#f7c3d0,#ef9fb6);border-radius:999px;transition:.25s}
+    .progressText{font-size:13px;color:var(--muted)}
+    h2{font-size:20px;margin:0 0 12px}
+    .task{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #f7edf0}
+    .task:last-child{border-bottom:0}
+    .task input{width:22px;height:22px;accent-color:#eaa0b8}
+    .task label{font-size:17px}
+    .task input:checked + label{text-decoration:line-through;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .mini{background:#fff7f9;border:1px solid var(--line);border-radius:18px;padding:12px}
+    .mini small{display:block;color:var(--muted);font-size:12px}
+    .mini input,.mini textarea{width:100%;border:0;background:transparent;font-size:17px;color:var(--text);outline:0;margin-top:6px}
+    textarea{min-height:82px;resize:vertical;font-family:inherit}
+    .money{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:10px 0}
+    .money input{width:45%;border:1px solid var(--line);border-radius:12px;padding:8px;background:#fff}
+    .quote{font-style:italic;color:#8e717a;line-height:1.5}
+    .tabs{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:min(410px,calc(100% - 18px));display:grid;grid-template-columns:repeat(5,1fr);background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:0 10px 30px rgba(210,148,165,.18);border-radius:22px;padding:8px;backdrop-filter:blur(12px)}
+    .tabs button{border:0;background:transparent;border-radius:16px;padding:10px 2px;color:#8d8386;font-size:12px}
+    .tabs button.active{background:var(--pink2);color:#b4697e;font-weight:800}
+    .page{display:none}.page.active{display:block}
+    .btn{border:0;background:#f3a9bd;color:white;border-radius:16px;padding:12px 14px;font-weight:800;width:100%;font-size:15px;margin-top:10px}
+    .reset{background:#f2eef0;color:#8e7e83}
+    .note{font-size:13px;color:var(--muted);line-height:1.4}
+    .historyItem{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid #f7edf0}
+    .historyItem:last-child{border-bottom:0}
+    .badge{background:var(--pink2);color:#b4697e;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800}
+    .small{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="top"><div class="pill">Glow Up</div><div class="pill">Монгол V2</div></div>
 
-0% өнөөдөр биелсэн
-Өнөөдрийн checklist
+    <section id="today" class="page active">
+      <h1>Оройн мэнд,<br>Жаргал ✨</h1>
+      <div class="sub">Нэг өдөрт нэг алхам. Өөрийн мөрөөдлийн хувилбар луу.</div>
 
-Өнөөдрийн тэмдэглэгээг цэвэрлэх
-Өдрийн үг
-“Чи нэг шөнийн дотор өөрчлөгдөхгүй. Гэхдээ өдөр бүр өөрийгөө сонговол амьдрал чинь өөрчлөгдөнө.”
-Today
-Түүх
-Бие
-Мөрөөдөл
-Journal
+      <div class="card">
+        <div class="day">
+          <div><span>Өдөр</span><br><strong id="dayNum">1</strong> <span>/ 75</span></div>
+          <div><span>🔥 Дараалал</span><br><strong id="streak">1</strong> <span>өдөр</span></div>
+        </div>
+        <div class="bar"><div class="fill" id="fill"></div></div>
+        <div class="progressText" id="progressText">0% өнөөдөр биелсэн</div>
+      </div>
+
+      <div class="card">
+        <h2>Өнөөдрийн checklist</h2>
+        <div id="tasks"></div>
+        <button class="btn reset" onclick="resetToday()">Өнөөдрийн тэмдэглэгээг цэвэрлэх</button>
+      </div>
+
+      <div class="card">
+        <h2>Өдрийн үг</h2>
+        <div class="quote">“Чи нэг шөнийн дотор өөрчлөгдөхгүй. Гэхдээ өдөр бүр өөрийгөө сонговол амьдрал чинь өөрчлөгдөнө.”</div>
+      </div>
+    </section>
+
+    <section id="history" class="page">
+      <h1>Өмнөх өдрүүд 🗓️</h1>
+      <div class="sub">Өдөр бүрийн checklist, journal, жин хэмжилтүүд чинь энд хадгалагдана.</div>
+      <div class="card">
+        <h2>Түүх</h2>
+        <div id="historyList"></div>
+      </div>
+    </section>
+
+    <section id="glow" class="page">
+      <h1>Бие & ахиц 🌸</h1>
+      <div class="sub">Жин, хэмжилт, өөрчлөлтөө өдөр бүр хадгална.</div>
+      <div class="card">
+        <h2>Body tracker</h2>
+        <div class="grid">
+          <div class="mini"><small>Жин / кг</small><input id="weight" placeholder="56" /></div>
+          <div class="mini"><small>Бүсэлхий / см</small><input id="waist" placeholder="70" /></div>
+          <div class="mini"><small>Өгзөг / см</small><input id="hips" placeholder="92" /></div>
+          <div class="mini"><small>Алхалт</small><input id="steps" placeholder="10000" /></div>
+        </div>
+        <button class="btn" onclick="saveDailyData()">Өнөөдрийн ахицаа хадгалах</button>
+      </div>
+      <div class="card">
+        <h2>Өнөөдрийн мэдрэмж</h2>
+        <textarea id="bodyNote" placeholder="Жишээ: Өнөөдөр хөнгөн, эрч хүчтэй байлаа..."></textarea>
+        <button class="btn" onclick="saveDailyData()">Хадгалах</button>
+      </div>
+    </section>
+
+    <section id="dream" class="page">
+      <h1>Мөрөөдлийн амьдрал 💫</h1>
+      <div class="sub">Машин, байр, англи хэл, хадгаламжийн зорилгоо хяна.</div>
+      <div class="card">
+        <h2>Санхүүгийн зорилтууд</h2>
+        <div class="mini"><small>🏠 Байрны урьдчилгаа — одоо / зорилт</small><div class="money"><input id="aptNow" placeholder="0"><input id="aptGoal" placeholder="50000000"></div></div>
+        <div class="mini" style="margin-top:10px"><small>🚗 Машин — одоо / зорилт</small><div class="money"><input id="carNow" placeholder="0"><input id="carGoal" placeholder="20000000"></div></div>
+        <div class="mini" style="margin-top:10px"><small>🇬🇧 Англи хэлний зорилго</small><input id="englishGoal" placeholder="IELTS / өдөр бүр 10 үг"></div>
+        <button class="btn" onclick="saveDream()">Мөрөөдлөө хадгалах</button>
+      </div>
+    </section>
+
+    <section id="journal" class="page">
+      <h1>Journal 📔</h1>
+      <div class="sub">Өглөө төвлөрөл, орой өөрийгөө үнэлэх хэсэг.</div>
+      <div class="card">
+        <h2>Өглөө</h2>
+        <textarea id="morning" placeholder="Өнөөдөр би юун дээр төвлөрөх вэ?"></textarea>
+      </div>
+      <div class="card">
+        <h2>Орой</h2>
+        <textarea id="evening" placeholder="Өнөөдөр юугаараа бахархаж байна? Маргааш юу сайжруулах вэ?"></textarea>
+        <button class="btn" onclick="saveDailyData()">Journal хадгалах</button>
+      </div>
+    </section>
+  </div>
+
+  <nav class="tabs">
+    <button class="active" onclick="showPage('today', this)">Today</button>
+    <button onclick="showPage('history', this)">Түүх</button>
+    <button onclick="showPage('glow', this)">Бие</button>
+    <button onclick="showPage('dream', this)">Мөрөөдөл</button>
+    <button onclick="showPage('journal', this)">Journal</button>
+  </nav>
+
+<script>
+const tasks = ["10,000 алхам","30 минут дасгал","2.5л ус","10 англи үг","10 хуудас ном","Арьс арчилгаа","Morning journal","8 цаг унтах"];
+const startKey = "glowStartDate";
+const todayKey = () => new Date().toISOString().slice(0,10);
+const dayDataKey = (d=todayKey()) => "glowDay_" + d;
+
+if(!localStorage.getItem(startKey)) localStorage.setItem(startKey, todayKey());
+
+function getDayNumber(){
+  const start = new Date(localStorage.getItem(startKey));
+  const now = new Date(todayKey());
+  return Math.min(75, Math.max(1, Math.floor((now-start)/(1000*60*60*24))+1));
+}
+
+function getDaily(date=todayKey()){
+  return JSON.parse(localStorage.getItem(dayDataKey(date)) || "{}");
+}
+function setDaily(data, date=todayKey()){
+  localStorage.setItem(dayDataKey(date), JSON.stringify(data));
+}
+
+function initTasks(){
+  const box = document.getElementById("tasks");
+  box.innerHTML = "";
+  const data = getDaily();
+  if(!data.checks) data.checks = Array(tasks.length).fill(false);
+  tasks.forEach((t,i)=>{
+    const row=document.createElement("div");
+    row.className="task";
+    row.innerHTML=`<input type="checkbox" id="t${i}" ${data.checks[i]?"checked":""}><label for="t${i}">${t}</label>`;
+    box.appendChild(row);
+    row.querySelector("input").addEventListener("change", e=>{
+      const d=getDaily();
+      d.checks = d.checks || Array(tasks.length).fill(false);
+      d.checks[i]=e.target.checked;
+      setDaily(d);
+      updateProgress();
+      renderHistory();
+    });
+  });
+}
+
+function updateProgress(){
+  const data=getDaily();
+  const checks=data.checks || Array(tasks.length).fill(false);
+  const done=checks.filter(Boolean).length;
+  const pct=Math.round(done/tasks.length*100);
+  document.getElementById("fill").style.width=pct+"%";
+  document.getElementById("progressText").textContent=pct+"% өнөөдөр биелсэн";
+  document.getElementById("dayNum").textContent=getDayNumber();
+  document.getElementById("streak").textContent=calcStreak();
+}
+
+function calcStreak(){
+  let count=0;
+  const start = new Date(localStorage.getItem(startKey));
+  const now = new Date(todayKey());
+  for(let d=new Date(now); d>=start; d.setDate(d.getDate()-1)){
+    const key=d.toISOString().slice(0,10);
+    const data=getDaily(key);
+    const checks=data.checks || [];
+    if(checks.some(Boolean)) count++;
+    else if(key !== todayKey()) break;
+  }
+  return Math.max(1,count);
+}
+
+function saveDailyData(){
+  const d=getDaily();
+  ["weight","waist","hips","steps","bodyNote","morning","evening"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) d[id]=el.value;
+  });
+  setDaily(d);
+  renderHistory();
+  alert("Хадгаллаа 🤍");
+}
+
+function saveDream(){
+  ["aptNow","aptGoal","carNow","carGoal","englishGoal"].forEach(id=>localStorage.setItem(id, document.getElementById(id).value));
+  alert("Мөрөөдлийн зорилтууд хадгалагдлаа ✨");
+}
+
+function loadInputs(){
+  const d=getDaily();
+  ["weight","waist","hips","steps","bodyNote","morning","evening"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value=d[id] || "";
+  });
+  ["aptNow","aptGoal","carNow","carGoal","englishGoal"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value=localStorage.getItem(id) || "";
+  });
+}
+
+function renderHistory(){
+  const list=document.getElementById("historyList");
+  if(!list) return;
+  const start = new Date(localStorage.getItem(startKey));
+  const now = new Date(todayKey());
+  let items=[];
+  for(let d=new Date(now); d>=start; d.setDate(d.getDate()-1)){
+    const key=d.toISOString().slice(0,10);
+    const data=getDaily(key);
+    const checks=data.checks || Array(tasks.length).fill(false);
+    const done=checks.filter(Boolean).length;
+    const pct=Math.round(done/tasks.length*100);
+    const day=Math.floor((new Date(key)-start)/(1000*60*60*24))+1;
+    items.push(`<div class="historyItem">
+      <div><b>Day ${day}</b><div class="small">${key} • ${done}/${tasks.length} checklist</div></div>
+      <span class="badge">${pct}%</span>
+    </div>`);
+  }
+  list.innerHTML = items.join("") || "<div class='note'>Одоогоор түүх байхгүй байна.</div>";
+}
+
+function resetToday(){
+  if(confirm("Өнөөдрийн checklist-ийг цэвэрлэх үү?")){
+    const d=getDaily();
+    d.checks=Array(tasks.length).fill(false);
+    setDaily(d);
+    initTasks(); updateProgress(); renderHistory();
+  }
+}
+
+function showPage(id, btn){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  loadInputs(); renderHistory();
+}
+
+initTasks();
+loadInputs();
+updateProgress();
+renderHistory();
+</script>
+</body>
+</html>
