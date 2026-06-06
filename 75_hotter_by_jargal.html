@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>75 Hotter by Jargal</title>
+  <style>
+    :root{
+      --bg:#fffaf8; --card:#ffffff; --pink:#f5b8c8; --pink2:#ffe8ef;
+      --text:#3f3435; --muted:#9b8d8f; --line:#f1dfe4;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,var(--bg),#fff);color:var(--text);}
+    .app{max-width:430px;margin:0 auto;min-height:100vh;padding:22px 18px 90px;}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-top:8px}.pill{background:var(--pink2);color:#b4697e;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700}
+    h1{font-size:30px;line-height:1.05;margin:20px 0 6px}.sub{color:var(--muted);font-size:14px;margin-bottom:18px}
+    .card{background:rgba(255,255,255,.86);border:1px solid var(--line);box-shadow:0 12px 35px rgba(210,148,165,.12);border-radius:24px;padding:18px;margin:14px 0;backdrop-filter:blur(8px)}
+    .day{display:flex;justify-content:space-between;align-items:end}.day strong{font-size:42px}.day span{color:var(--muted);font-size:14px}.bar{height:12px;background:#f8edf0;border-radius:999px;overflow:hidden;margin:15px 0 6px}.fill{height:100%;width:0%;background:linear-gradient(90deg,#f7c3d0,#ef9fb6);border-radius:999px;transition:.25s}.progressText{font-size:13px;color:var(--muted)}
+    h2{font-size:18px;margin:0 0 12px}.task{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid #f7edf0}.task:last-child{border-bottom:0}.task input{width:21px;height:21px;accent-color:#eaa0b6}.task label{flex:1;font-size:15px}.task.done label{text-decoration:line-through;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:#fff7f9;border:1px solid var(--line);border-radius:18px;padding:14px}.mini b{font-size:20px;display:block}.mini small{color:var(--muted)}
+    textarea,input[type=number]{width:100%;border:1px solid var(--line);border-radius:16px;padding:12px;background:#fffdfd;font-size:15px;color:var(--text);outline:none}textarea{min-height:86px;resize:vertical}.btn{width:100%;border:0;border-radius:18px;background:#3f3435;color:white;padding:14px 16px;font-weight:800;font-size:15px;margin-top:12px}.quote{font-family:Georgia,serif;font-size:17px;line-height:1.45;color:#725c62;background:#fff7f9;border-radius:18px;padding:15px}
+    nav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);width:min(410px,calc(100% - 28px));display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:24px;padding:8px;box-shadow:0 10px 30px rgba(120,80,90,.14)}nav button{border:0;background:transparent;border-radius:16px;padding:10px 4px;color:var(--muted);font-size:12px}nav button.active{background:var(--pink2);color:#b4697e;font-weight:800}.screen{display:none}.screen.active{display:block}.reset{background:transparent;color:#b4697e;border:1px solid var(--line)}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="top"><div class="pill">75 Hotter</div><div class="pill">Pinterest Soft</div></div>
+    <section id="today" class="screen active">
+      <h1>Good evening,<br/>Jargal ✨</h1><p class="sub">One soft day at a time. Become her.</p>
+      <div class="card"><div class="day"><div><span>Day</span><br/><strong id="dayNum">1</strong><span> / 75</span></div><div style="text-align:right"><span>🔥 Streak</span><br/><strong id="streak" style="font-size:28px">1</strong><span> day</span></div></div><div class="bar"><div class="fill" id="fill"></div></div><div class="progressText" id="progressText">0% completed today</div></div>
+      <div class="card"><h2>Today's Checklist</h2><div id="tasks"></div></div>
+      <div class="card"><h2>Daily Quote</h2><div class="quote">“She didn’t become her dream life overnight. She showed up every day.”</div></div>
+    </section>
+    <section id="glow" class="screen"><h1>Glow Up 🌸</h1><p class="sub">Body, health and confidence tracker.</p><div class="card"><h2>Body Tracker</h2><label>Weight today</label><input id="weight" type="number" step="0.1" placeholder="56.0 kg"/><br/><br/><label>Steps today</label><input id="steps" type="number" placeholder="10000"/><button class="btn" onclick="saveInputs()">Save Progress</button></div><div class="card grid"><div class="mini"><b id="savedWeight">—</b><small>Last weight</small></div><div class="mini"><b id="savedSteps">—</b><small>Last steps</small></div></div></section>
+    <section id="dream" class="screen"><h1>Dream Life 🤍</h1><p class="sub">Apartment, car, English and savings.</p><div class="card grid"><div class="mini"><b>🏠</b><small>Apartment fund</small></div><div class="mini"><b>🚗</b><small>Car goal</small></div><div class="mini"><b>📚</b><small>English glow up</small></div><div class="mini"><b>💸</b><small>Income growth</small></div></div><div class="card"><h2>Today’s focus</h2><textarea id="focus" placeholder="What is one thing I will do for my dream life today?"></textarea><button class="btn" onclick="saveInputs()">Save</button></div></section>
+    <section id="journal" class="screen"><h1>Journal 📔</h1><p class="sub">Soft mindset, strong discipline.</p><div class="card"><h2>Morning</h2><textarea id="morning" placeholder="Today I will..."></textarea></div><div class="card"><h2>Evening</h2><textarea id="evening" placeholder="What went well today?"></textarea><button class="btn" onclick="saveInputs()">Save Journal</button><button class="btn reset" onclick="resetToday()">Reset today only</button></div></section>
+  </main>
+  <nav><button class="active" onclick="show('today',this)">Today</button><button onclick="show('glow',this)">Glow</button><button onclick="show('dream',this)">Dream</button><button onclick="show('journal',this)">Journal</button></nav>
+  <script>
+    const taskList=['10,000 алхам','30 минут дасгал','2.5л ус','10 англи үг','10 хуудас ном','Арьс арчилгаа','Morning journal','8 цаг унтах'];
+    const todayKey='75hotter-'+new Date().toISOString().slice(0,10);
+    let state=JSON.parse(localStorage.getItem(todayKey)||'{}'); if(!state.tasks) state.tasks=Array(taskList.length).fill(false);
+    function renderTasks(){const box=document.getElementById('tasks');box.innerHTML='';taskList.forEach((t,i)=>{const row=document.createElement('div');row.className='task'+(state.tasks[i]?' done':'');row.innerHTML=`<input type="checkbox" ${state.tasks[i]?'checked':''}/><label>${t}</label>`;row.querySelector('input').onchange=e=>{state.tasks[i]=e.target.checked;save();renderTasks();};box.appendChild(row)});updateProgress();}
+    function updateProgress(){const done=state.tasks.filter(Boolean).length;const pct=Math.round(done/taskList.length*100);document.getElementById('fill').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'% completed today';}
+    function save(){localStorage.setItem(todayKey,JSON.stringify(state));}
+    function show(id,btn){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');loadInputs();}
+    function saveInputs(){['weight','steps','focus','morning','evening'].forEach(id=>{const el=document.getElementById(id); if(el) state[id]=el.value});save();loadInputs();}
+    function loadInputs(){['weight','steps','focus','morning','evening'].forEach(id=>{const el=document.getElementById(id); if(el && state[id]!==undefined) el.value=state[id]});document.getElementById('savedWeight').textContent=state.weight?state.weight+' kg':'—';document.getElementById('savedSteps').textContent=state.steps?state.steps:'—';}
+    function resetToday(){localStorage.removeItem(todayKey);state={tasks:Array(taskList.length).fill(false)};renderTasks();loadInputs();}
+    renderTasks();loadInputs();
+  </script>
+</body>
+</html>
